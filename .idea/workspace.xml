@@ -2,18 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d237da80-e2d3-46fc-8579-36d6fdb15e73" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/openaigym-2048.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/tf-gym-2048.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/__main__.py" beforeDir="false" afterPath="$PROJECT_DIR$/__main__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/openaigym_2048/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/openaigym_2048/t48/__init__.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Setup Script" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -102,7 +104,7 @@
       <workItem from="1587172484812" duration="54000" />
       <workItem from="1587172545414" duration="144000" />
       <workItem from="1587172846432" duration="755000" />
-      <workItem from="1587173874114" duration="864000" />
+      <workItem from="1587173874114" duration="2017000" />
     </task>
     <servers />
   </component>
@@ -113,6 +115,26 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="537" y="108" key="#setup" timestamp="1587181510192">
+      <screen x="0" y="22" width="1680" height="942" />
+    </state>
+    <state x="537" y="108" key="#setup/0.22.1680.942@0.22.1680.942" timestamp="1587181510192" />
+    <state width="1358" height="239" key="GridCell.Tab.0.bottom" timestamp="1587174744294">
+      <screen x="0" y="22" width="1680" height="942" />
+    </state>
+    <state width="1358" height="239" key="GridCell.Tab.0.bottom/0.22.1680.942@0.22.1680.942" timestamp="1587174744294" />
+    <state width="1358" height="239" key="GridCell.Tab.0.center" timestamp="1587174744293">
+      <screen x="0" y="22" width="1680" height="942" />
+    </state>
+    <state width="1358" height="239" key="GridCell.Tab.0.center/0.22.1680.942@0.22.1680.942" timestamp="1587174744293" />
+    <state width="1358" height="239" key="GridCell.Tab.0.left" timestamp="1587174744293">
+      <screen x="0" y="22" width="1680" height="942" />
+    </state>
+    <state width="1358" height="239" key="GridCell.Tab.0.left/0.22.1680.942@0.22.1680.942" timestamp="1587174744293" />
+    <state width="1358" height="239" key="GridCell.Tab.0.right" timestamp="1587174744294">
+      <screen x="0" y="22" width="1680" height="942" />
+    </state>
+    <state width="1358" height="239" key="GridCell.Tab.0.right/0.22.1680.942@0.22.1680.942" timestamp="1587174744294" />
     <state x="349" y="132" key="SettingsEditor" timestamp="1587172505930">
       <screen x="0" y="22" width="1680" height="942" />
     </state>
