@@ -1,0 +1,17 @@
+buildscript {
+apply from: "dev.shroysha.gradle"
+
+}
+
+plugins {
+id("dev.shroysha.plugin")
+
+}
+
+repositories {
+
+}
+
+dependencies {
+
+}
