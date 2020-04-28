@@ -1,4 +1,4 @@
-# t48-tensorflow-gym
+# t48-gym-tensorflow
 
 ## Description
 A Python deep-ai for the game 2048
