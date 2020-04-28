@@ -149,7 +149,7 @@ class T48Game:
         self.t48_board = T48Board()
 
     def do_swipe_choice(self, choice):
-        assert choice in T48Game.SWIPE_CHOICES.keys()
+        #assert choice in T48Game.SWIPE_CHOICES.keys()
         T48Game.SWIPE_CHOICES[choice](self.t48_board)
 
     @property

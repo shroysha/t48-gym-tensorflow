@@ -2,8 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d237da80-e2d3-46fc-8579-36d6fdb15e73" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/t48_gym_tensorflow/t48.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/t48_gym_tensorflow/t48_gym.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/__main__.py" beforeDir="false" afterPath="$PROJECT_DIR$/__main__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev.shroysha.py.t48-tensorflow-gym.iml" beforeDir="false" afterPath="$PROJECT_DIR$/dev.shroysha.py.t48-tensorflow-gym.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tf_gym_2048/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/t48_gym_tensorflow/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tf_gym_2048/t48/__init__.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -14,6 +20,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Setup Script" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -105,7 +112,13 @@
       <workItem from="1587172545414" duration="144000" />
       <workItem from="1587172846432" duration="755000" />
       <workItem from="1587173874114" duration="3458000" />
-      <workItem from="1587334481292" duration="612000" />
+      <workItem from="1587334481292" duration="1003000" />
+      <workItem from="1587340189788" duration="1049000" />
+      <workItem from="1587434613349" duration="7726000" />
+      <workItem from="1587515942659" duration="2277000" />
+      <workItem from="1587603071673" duration="819000" />
+      <workItem from="1587698664433" duration="1763000" />
+      <workItem from="1587851297836" duration="5680000" />
     </task>
     <servers />
   </component>

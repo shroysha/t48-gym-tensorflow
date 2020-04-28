@@ -3,7 +3,7 @@ from setuptools import setup
 setup(
     name='tf-gym-2048',
     version='',
-    packages=['tf_gym_2048', 'tf_gym_2048.t48'],
+    packages=['t48_gym_tensorflow', 't48_gym_tensorflow.t48'],
     url='',
     license='',
     author='Shawn Shroyer',

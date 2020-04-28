@@ -1,53 +1,7 @@
-import gym
+import logging
 
-import tensorflow as tf
-from tf_agents.networks import q_network
-from tf_agents.agents.dqn import dqn_agent
-from tf_agents.environments import suite_gym, tf_py_environment
-from tf_agents.utils import common
+logging.basicConfig(level=logging.DEBUG)
 
-from tf_gym_2048 import T48GymEnv
-
-tf.compat.v1.enable_resource_variables()
-
-num_iterations = 20000 # @param {type:"integer"}
-
-initial_collect_steps = 1000  # @param {type:"integer"}
-collect_steps_per_iteration = 1  # @param {type:"integer"}
-replay_buffer_max_length = 100000  # @param {type:"integer"}
-
-batch_size = 64  # @param {type:"integer"}
-log_interval = 200  # @param {type:"integer"}
-
-num_eval_episodes = 10  # @param {type:"integer"}
-eval_interval = 1000  # @param {type:"integer"}
-
-
-train_py_env = suite_gym.load(T48GymEnv.GYM_ENV_NAME, max_episode_steps=num_iterations)
-eval_py_env = suite_gym.load(T48GymEnv.GYM_ENV_NAME, max_episode_steps=num_iterations)
-train_env = tf_py_environment.TFPyEnvironment(train_py_env)
-eval_env = tf_py_environment.TFPyEnvironment(eval_py_env)
-
-
-q_net = q_network.QNetwork(
-  train_env.observation_spec(),
-  train_env.action_spec(),
-  fc_layer_params=(100,))
-
-learning_rate = 1e-3  # @param {type:"number"}
-optimizer = tf.compat.v1.train.AdamOptimizer(learning_rate=learning_rate)
-
-train_step_counter = tf.Variable(0)
-
-agent = dqn_agent.DqnAgent(
-    train_env.time_step_spec(),
-    train_env.action_spec(),
-    q_network=q_net,
-    optimizer=optimizer,
-    td_errors_loss_fn=common.element_wise_squared_loss,
-    train_step_counter=train_step_counter)
-
-agent.initialize()
 
 
 # env = gym.make("T48GymEnv-v0")
