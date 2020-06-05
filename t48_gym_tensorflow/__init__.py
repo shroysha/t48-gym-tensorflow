@@ -7,8 +7,8 @@ from tf_agents.eval import metric_utils
 from tf_agents.metrics import tf_metrics
 from tf_agents.networks import q_network
 from tf_agents.agents.dqn import dqn_agent
-from tf_agents.environments import suite_gym, tf_py_environment
-from tf_agents.policies import random_tf_policy
+from tf_agents.environments import suite_gym, tf_py_environment, parallel_py_environment
+from tf_agents.policies import random_tf_policy, policy_saver
 from tf_agents.replay_buffers import tf_uniform_replay_buffer
 from tf_agents.trajectories import trajectory
 from tf_agents.utils import common
@@ -24,9 +24,6 @@ class T48GymTensorflowContext:
 
     max_episode_steps = 20000  # @param {type:"integer"}
     replay_buffer_max_length = 100000  # @param {type:"integer"}
-    batch_size = 1024  # @param {type:"integer"}
-    num_eval_episodes = 10  # @param {type:"integer"}
-    eval_interval = 1000  # @param {type:"integer"}
     learning_rate = 1e-3  # @param {type:"number"}
     train_dir = "/Volumes/SECONDARY/t48_gym_tensorflow"
     train_metrics = [
@@ -42,17 +39,20 @@ class T48GymTensorflowContext:
         self._train_env = tf_py_environment.TFPyEnvironment(self._train_py_env)
         self._eval_env = tf_py_environment.TFPyEnvironment(self._eval_py_env)
 
+        self._global_step = tf.compat.v1.train.get_or_create_global_step()
+
         self._q_net = q_network.QNetwork(
           self._train_env.observation_spec(),
           self._train_env.action_spec(),
           fc_layer_params=(100,))
-        self._agent = dqn_agent.DqnAgent(
+        self._agent = dqn_agent.DdqnAgent(
             self._train_env.time_step_spec(),
             self._train_env.action_spec(),
             q_network=self._q_net,
             optimizer=tf.compat.v1.train.AdamOptimizer(learning_rate=T48GymTensorflowContext.learning_rate),
             td_errors_loss_fn=common.element_wise_squared_loss,
-            train_step_counter=tf.Variable(0))
+            train_step_counter=self._global_step,
+            epsilon_greedy=0.0)
         self._agent.initialize()
         self._agent.train = common.function(self._agent.train)
 
@@ -64,6 +64,8 @@ class T48GymTensorflowContext:
             num_parallel_calls=3,
             sample_batch_size=self._train_env.batch_size,
             num_steps=2).prefetch(3)
+        self._agent.initialize()
+
         self._iterator = iter(self._dataset)
 
         self._RANDOM_POLICY = random_tf_policy.RandomTFPolicy(self._train_env.time_step_spec(),
@@ -77,20 +79,21 @@ class T48GymTensorflowContext:
             observers=[self._replay_buffer.add_batch] + T48GymTensorflowContext.train_metrics,
             num_steps=2)
 
-        self._global_step = tf.compat.v1.train.get_or_create_global_step()
         self._train_checkpointer = common.Checkpointer(
             ckpt_dir=T48GymTensorflowContext.train_dir,
-            agent=self._agent,
             global_step=self._global_step,
+            agent=self._agent,
             metrics=metric_utils.MetricsGroup(T48GymTensorflowContext.train_metrics, 'train_metrics'))
         self._policy_checkpointer = common.Checkpointer(
             ckpt_dir=os.path.join(T48GymTensorflowContext.train_dir, 'policy'),
-            policy=self._eval_policy,
-            global_step=self._global_step)
+            global_step=self._global_step,
+            policy=self._eval_policy)
         self._rb_checkpointer = common.Checkpointer(
             ckpt_dir=os.path.join(T48GymTensorflowContext.train_dir, 'replay_buffer'),
             max_to_keep=1,
             replay_buffer=self._replay_buffer)
+
+        self._tf_policy_saver = policy_saver.PolicySaver(self._agent.policy)
 
         self._train_checkpointer.initialize_or_restore()
         self._policy_checkpointer.initialize_or_restore()
@@ -99,31 +102,35 @@ class T48GymTensorflowContext:
     def run_episodes(self, episode_count):
         for episode_num in range(episode_count):
 
-            logging.info("StartingEpisode:", episode_num)
+            print("StartingEpisode:", episode_num)
             time_step = self._train_env.reset()
             policy_state = self._collect_policy.get_initial_state(self._train_env.batch_size)
-            logging.debug("ResetEnvironment")
+            print("ResetEnvironment")
 
             while not time_step.is_last():
                 time_step, policy_state = self._collect_driver.run(
                     time_step=time_step,
                     policy_state=policy_state,
                 )
-                logging.info("TimeStep:", time_step)
-                logging.info("PolicyState:", policy_state)
+                print("TimeStep:", str(time_step))
+                print("PolicyState:", policy_state)
 
                 experience, unused_info = next(self._iterator)
-                logging.info("Experience:", experience)
-                logging.debug("UnusedInfo:", unused_info)
+                print("Experience:", experience)
+                print("UnusedInfo:", unused_info)
 
                 train_loss = self._agent.train(experience)
-                logging.info("TrainLoss:",  train_loss)
+                print("TrainLoss:", str(train_loss))
+                print()
 
-            logging.info("EndOfEpisode:", episode_num)
+                self._tf_policy_saver.save(os.path.join(T48GymTensorflowContext.train_dir, 'policy'))
+                self._train_py_env.render()
+
+            print("EndOfEpisode:", episode_num)
+            print()
             self._train_checkpointer.save(global_step=self._global_step.numpy())
             self._rb_checkpointer.save(global_step=self._global_step.numpy())
             self._policy_checkpointer.save(global_step=self._global_step.numpy())
-
             #
             # episode_reward = 0
             # print(time_step.is_last())
@@ -138,10 +145,4 @@ class T48GymTensorflowContext:
             #     time_step = next_time_step
             #     print("Action:", action_step.action, "Reward: ", time_step.reward.numpy())
             #     print(self._train_py_env.gym.t48_game.t48_board.board_data)
-
-
-class T48GymTensorflowContextManager:
-
-    def __init__(self, t48context):
-        self._t48context = t48context
 

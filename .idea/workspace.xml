@@ -2,14 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d237da80-e2d3-46fc-8579-36d6fdb15e73" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/t48_gym_tensorflow/t48.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/t48_gym_tensorflow/t48_gym.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/__main__.py" beforeDir="false" afterPath="$PROJECT_DIR$/__main__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev.shroysha.py.t48-tensorflow-gym.iml" beforeDir="false" afterPath="$PROJECT_DIR$/dev.shroysha.py.t48-tensorflow-gym.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tf_gym_2048/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/t48_gym_tensorflow/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tf_gym_2048/t48/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/t48_gym_tensorflow/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/t48_gym_tensorflow/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/t48_gym_tensorflow/t48_gym.py" beforeDir="false" afterPath="$PROJECT_DIR$/t48_gym_tensorflow/t48_gym.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,6 +37,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
@@ -119,6 +116,8 @@
       <workItem from="1587603071673" duration="819000" />
       <workItem from="1587698664433" duration="1763000" />
       <workItem from="1587851297836" duration="5680000" />
+      <workItem from="1588185625414" duration="1000" />
+      <workItem from="1588283311078" duration="10765000" />
     </task>
     <servers />
   </component>
@@ -133,22 +132,22 @@
       <screen x="0" y="22" width="1680" height="942" />
     </state>
     <state x="537" y="108" key="#setup/0.22.1680.942@0.22.1680.942" timestamp="1587181510192" />
-    <state width="1358" height="239" key="GridCell.Tab.0.bottom" timestamp="1587174744294">
+    <state width="1358" height="234" key="GridCell.Tab.0.bottom" timestamp="1588964090305">
       <screen x="0" y="22" width="1680" height="942" />
     </state>
-    <state width="1358" height="239" key="GridCell.Tab.0.bottom/0.22.1680.942@0.22.1680.942" timestamp="1587174744294" />
-    <state width="1358" height="239" key="GridCell.Tab.0.center" timestamp="1587174744293">
+    <state width="1358" height="234" key="GridCell.Tab.0.bottom/0.22.1680.942@0.22.1680.942" timestamp="1588964090305" />
+    <state width="1358" height="234" key="GridCell.Tab.0.center" timestamp="1588964090304">
       <screen x="0" y="22" width="1680" height="942" />
     </state>
-    <state width="1358" height="239" key="GridCell.Tab.0.center/0.22.1680.942@0.22.1680.942" timestamp="1587174744293" />
-    <state width="1358" height="239" key="GridCell.Tab.0.left" timestamp="1587174744293">
+    <state width="1358" height="234" key="GridCell.Tab.0.center/0.22.1680.942@0.22.1680.942" timestamp="1588964090304" />
+    <state width="1358" height="234" key="GridCell.Tab.0.left" timestamp="1588964090304">
       <screen x="0" y="22" width="1680" height="942" />
     </state>
-    <state width="1358" height="239" key="GridCell.Tab.0.left/0.22.1680.942@0.22.1680.942" timestamp="1587174744293" />
-    <state width="1358" height="239" key="GridCell.Tab.0.right" timestamp="1587174744294">
+    <state width="1358" height="234" key="GridCell.Tab.0.left/0.22.1680.942@0.22.1680.942" timestamp="1588964090304" />
+    <state width="1358" height="234" key="GridCell.Tab.0.right" timestamp="1588964090305">
       <screen x="0" y="22" width="1680" height="942" />
     </state>
-    <state width="1358" height="239" key="GridCell.Tab.0.right/0.22.1680.942@0.22.1680.942" timestamp="1587174744294" />
+    <state width="1358" height="234" key="GridCell.Tab.0.right/0.22.1680.942@0.22.1680.942" timestamp="1588964090305" />
     <state x="349" y="132" key="SettingsEditor" timestamp="1587172505930">
       <screen x="0" y="22" width="1680" height="942" />
     </state>
@@ -156,5 +155,6 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/tf_gym_2048$__main__.coverage" NAME="__main__ Coverage Results" MODIFIED="1587174744273" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/t48_gym_tensorflow$__main__.coverage" NAME="__main__ Coverage Results" MODIFIED="1588649484553" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

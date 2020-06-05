@@ -1,8 +1,11 @@
 import logging
+from t48_gym_tensorflow import T48GymTensorflowContext
 
 logging.basicConfig(level=logging.DEBUG)
 
 
+t48sess = T48GymTensorflowContext()
+t48sess.run_episodes(200)
 
 # env = gym.make("T48GymEnv-v0")
 # env.reset()
