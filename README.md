@@ -1,7 +1,7 @@
 # t48-gym-tensorflow
 
 ## Description
-A Python deep-ai for the game 2048
+Tensorflow machine learning for the game 2048
 
 ### Tags
 [Python]
